@@ -81,12 +81,20 @@ const server = async () => {
 
   app.delete(
     '/:urlEncoded',
-    (
-      req: Request<{ urlEncoded: string }>,
-      res: Response,
-      next: NextFunction
-    ) => {
-      res.send('*poof* Your URL X shortened to code Y is gone!');
+    async (req: Request<{ urlEncoded: string }>, res: Response) => {
+      TUIOutput('Deleting URL shortening record', req.params.urlEncoded);
+
+      const shortURL = await getShortenedURL(req.params.urlEncoded);
+      if (shortURL == undefined) {
+        res
+          .status(404)
+          .send(
+            'Record does not exist and is thus not available for deletion.'
+          );
+      } else {
+        await deleteURL(req.params.urlEncoded);
+        res.status(200).send('Record deleted');
+      }
     }
   );
 
