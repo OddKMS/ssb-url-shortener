@@ -33,7 +33,7 @@ const server = async () => {
   // No time for anything other than happy paths, just imagine
   // that I'm doing a lot of responsible try/catching and
   // error handling as well as parameter verification
-  app.post('/shorten', (req: Request, res: Response) => {
+  app.post('/shorten', async (req: Request, res: Response) => {
     // We assume the payload is a json structured like so:
     // { url: fooURL }
     const rawURL = req.body.url;
@@ -68,11 +68,7 @@ const server = async () => {
 
   app.get(
     '/:urlEncoded/stats',
-    (
-      req: Request<{ urlEncoded: string }>,
-      res: Response,
-      next: NextFunction
-    ) => {
+    async (req: Request<{ urlEncoded: string }>, res: Response) => {
       res.send('Hello here are your URL click-through stats!');
     }
   );
