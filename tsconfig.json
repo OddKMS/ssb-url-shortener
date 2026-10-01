@@ -1,0 +1,31 @@
+{
+  "extends": "@tsconfig/node24",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "noEmit": true,
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "#types": [
+        "./src/types/index.ts"
+      ],
+      "#helpers": [
+        "./src/helpers/index.ts"
+      ],
+      "#helpers/database": [
+        "./src/helpers/database.ts"
+      ],
+      "#url-shortener": [
+        "./src/url-shortener.ts"
+      ]
+    }
+  },
+  "include": [
+    "./bin.ts",
+    "./src/**/*",
+    "./tests/**/*",
+    "vitest.config.ts"
+  ]
+}

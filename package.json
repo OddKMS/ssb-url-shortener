@@ -1,0 +1,56 @@
+{
+  "name": "@oddkms/i18n-generate-translationkeys",
+  "version": "0.0.1",
+  "type": "module",
+  "engines": {
+    "npm": ">=11.3.0",
+    "node": ">=24.1.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "md5": "^2.3.0",
+    "node-jq": "^6.0.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^6.0.1",
+    "suppress-experimental-warnings": "^2.0.0",
+    "yargs": "^18.0.0-candidate.7",
+    "zx": "^8.5.4"
+  },
+  "bin": {
+    "ssb-url-shortener": "bin.ts"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "@tsconfig/node24": "^24.0.1",
+    "@types/express": "^5.0.6",
+    "@types/fs-extra": "^11.0.4",
+    "@types/md5": "^2.3.6",
+    "@types/node": "^22.15.23",
+    "@types/yargs": "^17.0.33",
+    "@vitest/coverage-v8": "^3.1.4",
+    "memfs": "^4.17.2",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "validator": "^13.15.35",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4"
+  },
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "main": "bin.ts",
+  "keywords": [
+    "URL",
+    "shortener"
+  ],
+  "author": "OddKMS",
+  "license": "ISC",
+  "description": "",
+  "imports": {
+    "#types": "./src/types/index.ts",
+    "#helpers": "./src/helpers/index.ts",
+    "#helpers/database": "./src/helpers/database.ts",
+    "#url-shortener": "./src/url-shortener.ts"
+  }
+}
