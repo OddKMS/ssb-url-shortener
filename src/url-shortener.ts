@@ -58,6 +58,7 @@ const server = async () => {
 
       if (shortURL != undefined) {
         TUIOutput('Updating URL metadata (incrementing hit counter)');
+        incrementHits(shortURL.id);
 
         TUIOutput('Redirecting user to requested original URL:', shortURL.url);
         res.redirect(shortURL.url);
