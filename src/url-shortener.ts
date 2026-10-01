@@ -53,7 +53,6 @@ const server = async () => {
   app.get(
     '/:urlEncoded',
     async (req: Request<{ urlEncoded: string }>, res: Response) => {
-      TUIOutput('Fetching shortened URL');
       const shortURL = await getShortenedURL(req.params.urlEncoded);
 
       if (shortURL != undefined) {
@@ -69,7 +68,14 @@ const server = async () => {
   app.get(
     '/:urlEncoded/stats',
     async (req: Request<{ urlEncoded: string }>, res: Response) => {
-      res.send('Hello here are your URL click-through stats!');
+      const shortURL = await getShortenedURL(req.params.urlEncoded);
+      const urlStats = await getURLStats(req.params.urlEncoded);
+
+      if (shortURL != undefined && urlStats != undefined) {
+        TUIOutput('Click-through stats for url', shortURL.url);
+        TUIOutput('Click count so far:', urlStats.hits);
+        res.send(urlStats.hits);
+      }
     }
   );
 
