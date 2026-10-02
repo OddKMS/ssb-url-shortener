@@ -48,5 +48,4 @@ EXPOSE $PORT
 ENTRYPOINT [ "/bin/bash", "--login", "-c" ]
 
 # This arrangement lets us change the npm script we want to run on-the-fly
-# Swap out "serve" for any script command in package.json
-CMD [ "node bin.ts" ]
+CMD [ "npx ssb-url-shortener" ]

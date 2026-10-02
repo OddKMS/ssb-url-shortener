@@ -2,7 +2,7 @@ import sqlite from 'sqlite3';
 import { open } from 'sqlite';
 import type { URL_shortened, URL_stats } from '#types';
 
-const databaseFile = './database.db';
+const databaseFile = './storage/database.db';
 
 async function openDb() {
   return open({

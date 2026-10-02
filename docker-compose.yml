@@ -1,0 +1,20 @@
+services:
+  url-shortener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    develop:
+      watch:
+        - action: rebuild
+          path: ./src/
+          target: /
+          ignore:
+            - node_modules/
+    command: ['npx ssb-url-shortener']
+    ports:
+      - '3000:3000'
+    volumes:
+      - './storage:/url-shortener/storage'
+
+volumes:
+  storage:
