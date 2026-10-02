@@ -11,5 +11,5 @@ If you've got nvm and node you can also spin up the application natively by runn
 ```
 nvm install
 npm install
-node bin.ts
+npx ssb-url-shortener
 ```
