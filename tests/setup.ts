@@ -1,4 +1,6 @@
-import { vi, afterAll } from 'vitest';
+import { vi, afterAll, beforeAll } from 'vitest';
+
+beforeAll(() => {});
 
 afterAll(() => {
   vi.clearAllMocks();

@@ -2,7 +2,6 @@ import express, {
   type Express,
   type Request,
   type Response,
-  type NextFunction,
   json,
 } from 'express';
 
@@ -101,6 +100,8 @@ const server = async () => {
   app.listen(port, () => {
     TUIOutput('URL Shortener service listening on port', port);
   });
+
+  return app;
 };
 
 export default server;

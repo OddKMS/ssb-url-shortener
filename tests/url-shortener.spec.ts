@@ -1,6 +1,4 @@
 import { describe, it } from 'vitest';
-import { }
-
 
 describe('The URL shortener API', () => {
   it('should contain an endpoint for shortening an URL', () => {});
