@@ -1,1 +1,1 @@
-export type * from './URL_shortener.js';
+export type * from './URL-shortener.js';
